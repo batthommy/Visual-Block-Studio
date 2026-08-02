@@ -1,0 +1,88 @@
+# - 1–3 developers for HTML & CSS
+# - 2–3 developers for JavaScript
+# - 1–2 designers for Graphics
+# - 1–2 Game Developers
+# - 1 Server Administrator (+1 Backup)
+# - 1–2 developers for SQL & Databases
+# - 1 PHP developer
+# - 2 Python developers
+# - 1–2 API developers
+# - 1 C developer
+# - 2 C++ developers
+# - 1–2 Blockly developers
+# - 2 people for Economy & Currency Management
+# - 2 developers for Code Review
+# - 2 developers for Optimization
+# - 2 developers for Bug Control
+# - 2–3 Testing (QA)
+# - 2 Documentation
+# - 1–2 UI/UX
+# - 1 Asset Management
+# - 1 Project Lead
+# - 1 Group Administrator
+# - 1 Rust developer
+
+- @A
+
+- @adeamzs {
+  WHAT_DO: Infrastructure, Docker, Kubernetes, YAML, Testing;
+  OTHER: Server assistance, General helper (non-coding);
+}
+
+- @BatThommy {
+  WHAT_DO: Project Management, Code Review, SQL, Database, HTML, CSS, Asset Management;
+  OTHER: Lead, Support, Review, Idea, Images (some), Potential server host;
+}
+
+- @BilolK {
+  WHAT_DO: Blockly;
+}
+
+- @citunek22 {
+  WHAT_DO: UI/UX, Blockly;
+}
+
+- @dasdebadrita518 {
+  WHAT_DO: JavaScript, PHP, Bug Control, Game Development;
+}
+
+- @devansh {
+  WHAT_DO: C++, CSS, Python, Database, Economy, Documentation, Bug Control, Graphic Design, APIs;
+  OTHER: Main Server Administrator;
+}
+
+- @DS010 {
+  WHAT_DO: APIs, Game Development;
+}
+
+- @gnahiak2 {
+  WHAT_DO: HTML, C, Python (basic), Docker, Podman, Testing;
+  OTHER: Server support;
+}
+
+- @leftie {
+  WHAT_DO: Rust, Optimization;
+}
+
+- @Noben_Nobi {
+  WHAT_DO: Group Administrator, Economy, Code Review, Optimization, Documentation, Graphic Design, Testing, C++;
+}
+
+- @pedrosanchessp
+
+- @zenku {
+  WHAT_DO: UI/UX;
+}
+
+---
+
+## REMAINING OPEN ROLES
+
+- JavaScript need 2
+
+---
+
+## UNASSIGNED MEMBERS
+
+- @A
+- @pedrosanchessp
