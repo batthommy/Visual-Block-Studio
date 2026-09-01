@@ -268,9 +268,7 @@ main {
     letter-spacing: 0.04em;
 }
 
-.card1 > p:nth-of-type(1),
-.card2 > p:nth-of-type(1),
-.card3 > p:nth-of-type(1) {
+.stat-value {
     margin-bottom: 7px;
     color: #26301f;
     font-size: 24px;
@@ -278,9 +276,7 @@ main {
     font-weight: 700;
 }
 
-.card1 > p:nth-of-type(2),
-.card2 > p:nth-of-type(2),
-.card3 > p:nth-of-type(2) {
+.stat-desc {
     color: #81897d;
     font-size: 12px;
     line-height: 1.5;
@@ -450,6 +446,7 @@ main {
 .marketplace-card1,
 .marketplace-card2,
 .marketplace-card3 {
+    position: relative;
     min-height: 210px;
     padding: 20px;
     background: #ffffff;
@@ -472,8 +469,9 @@ main {
 }
 
 .marketplace-version {
-    float: right;
-    margin-top: -50px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
     color: #899284;
     font-size: 10px;
 }
@@ -623,4 +621,97 @@ main {
 .copyright {
     color: #929a8f;
     font-size: 11px;
+}
+
+
+/* ---- Hover & focus states ---- */
+
+.primary-button:hover,
+.SignBtn:hover {
+    background: #3d5729;
+}
+
+.secondary-button:hover,
+.LoginBtn:hover {
+    background: #f1f5ee;
+}
+
+.nav-links a:hover,
+.footer-utility a:hover,
+.footer-links a:hover {
+    color: #40552d;
+}
+
+.marketplace-card1 > a:hover,
+.marketplace-card2 > a:hover,
+.marketplace-card3 > a:hover {
+    text-decoration: underline;
+}
+
+.project-info a:hover,
+.project-card1 > a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #496532;
+    outline-offset: 2px;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+    }
+
+    .cards-section,
+    .marketplace-highlights1 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .recommended-projects {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .project-card1,
+    .project-card2,
+    .project-card3 {
+        grid-row: auto;
+        grid-column: auto;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 0 4%;
+    }
+
+    .cards-section,
+    .marketplace-highlights1,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .primary-button,
+    .hero-buttons .secondary-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
