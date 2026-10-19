@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+
+<p>Welcome to the dashboard {{ session['username'] }}!</p>
+
+<a href="{{ url_for('logout') }}">Logout</a>
