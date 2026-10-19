@@ -19,7 +19,7 @@ ROOT_DIR = str(pathlib.Path(__file__).parent.parent.resolve())
 app = Flask(__name__, template_folder=f"{ROOT_DIR}/frontend/templates", static_folder=f"{ROOT_DIR}/frontend/static")
 app.secret_key = "123456" #FOR DEBUG ONLY, THIS SHOULD BE CHANGED TO os.urandom(24) IN PRODUCTION
 
-DATABASE = f"{ROOT_DIR}/backend/database.db"
+DATABASE = f"{ROOT_DIR}/backend/users.db"
 
 
 def get_db():
