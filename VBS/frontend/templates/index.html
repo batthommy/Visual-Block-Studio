@@ -3,6 +3,16 @@
 {% block title %}Visual Block Studio{% endblock %}
 {% block content %}
 
+    <script id="vbs-user-data" type="application/json">
+        {{ {"logged_in": logged_in, "user": user} | tojson }}
+    </script>
+
+    <script>
+        const vbsUserData = JSON.parse(document.getElementById("vbs-user-data").textContent);
+        const is_logged_in = vbsUserData.logged_in;
+        const user = vbsUserData.user;
+    </script>
+
      <section class="hero">
 
             <div class="hero-element">

@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, session, g
-import sqlite3
-import os
-import werkzeug.security as security
-from functools import wraps
 import pathlib
+import sqlite3
+from datetime import date
+from functools import wraps
+
+from flask import Flask, g, redirect, render_template, request, session, url_for
+from werkzeug import security
+
 
 @wraps
 def login_required(f):
@@ -17,9 +19,8 @@ def login_required(f):
 ROOT_DIR = str(pathlib.Path(__file__).parent.parent.resolve())
 
 app = Flask(__name__, template_folder=f"{ROOT_DIR}/frontend/templates", static_folder=f"{ROOT_DIR}/frontend/static")
-app.secret_key = "123456" #FOR DEBUG ONLY, THIS SHOULD BE CHANGED TO os.urandom(24) IN PRODUCTION
-
-DATABASE = f"{ROOT_DIR}/backend/users.db"
+app.secret_key = "vbs-7f3a9c82e1b640d5a0f6c93b2e8d147a"
+DATABASE = f"{ROOT_DIR}/backend/database.db"
 
 
 def get_db():
@@ -39,8 +40,48 @@ def close_connection(exception):
 
 @app.route('/', methods=['GET'])
 def index():
-    if request.method == 'GET':
-        return render_template("index.html")
+    user = None
+
+    if 'email' in session:
+        con = get_db()
+        con.row_factory = sqlite3.Row
+
+        row = con.execute(
+            "SELECT id, name, username, email, birthdate, description, created_at FROM users WHERE email = ?",
+            (session['email'],)
+        ).fetchone()
+
+        if row:
+            birthdate = date.fromisoformat(row['birthdate'])
+            today = date.today()
+
+            age = today.year - birthdate.year - (
+                (today.month, today.day) < (birthdate.month, birthdate.day)
+            )
+
+            projects = con.execute(
+                "SELECT id, name, description, created_at FROM projects WHERE owner_id = ?",
+                (row['id'],)
+            ).fetchall()
+
+            user = {
+                "id": row['id'],
+                "name": row['name'],
+                "username": row['username'],
+                "email": row['email'],
+                "age": age,
+                "birthdate": row['birthdate'],
+                "description": row['description'],
+                "created_at": row['created_at'],
+                "projects": [dict(project) for project in projects]
+            }
+
+    return render_template(
+        "index.html",
+        logged_in=user is not None,
+        user=user
+    )
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -59,7 +100,7 @@ def login():
                 session.clear()
                 session['email'] = email
                 session['username'] = con.execute("SELECT username FROM users WHERE email = ?", (email,)).fetchone()[0]
-                return redirect(url_for('dashboard'))
+                return redirect(url_for('index'))
             else:
                 return render_template("login.html", error="Invalid email or password", Email_log=email, Password_log=password)
         else:
@@ -92,19 +133,20 @@ def register():
             
             session['email'] = Email
             session['username'] = Username
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('index'))
         else:
             return render_template("login.html", error="Please fill in all fields.", show_sign_up=True, Name=Name, Username=Username, Email=Email, Birthdate=Birthdate)
 
-@login_required
 @app.route('/dashboard', methods=['GET'])
+@login_required
 def dashboard():
     return render_template("dashboard.html")
 
-@login_required
 @app.route('/logout', methods=['GET'])
+@login_required
 def logout():
     session.clear()
     return redirect(url_for('login'))
+    
 
 app.run(debug=True)

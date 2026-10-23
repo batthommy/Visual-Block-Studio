@@ -19,11 +19,11 @@
     <nav>
         <div class="logo">Visual Block Studio</div>
         <ul class="nav-links">
-          <li><a href="{{ url_for('index') }}">Homepage</a></li> 
-          <li><a href="{{ url_for('build') }}">Build</a></li>
-          <li><a href="{{ url_for('explore') }}">Explore</a></li>
-          <li><a href="{{ url_for('marketplace') }}">Marketplace</a></li>
-          <li><a href="{{ url_for('resources') }}">Resources</a></li>
+          <li><a href="{{ url_for('index') }}">Homepage</a></li>
+          <li><a href="#">Build</a></li>
+          <li><a href="#">Explore</a></li>
+          <li><a href="#">Marketplace</a></li>
+          <li><a href="#">Resources</a></li>
         </ul>
         <div class="btns">
         <a href="{{ url_for('login') }}" class="start">Get Started</a>
@@ -113,6 +113,9 @@
     </div>
 </footer>
     <!-- !! FOOTER YET TO BE DEFINED -->
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 
