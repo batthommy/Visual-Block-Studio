@@ -427,12 +427,8 @@ body > h2 {
 
 
 .saas-footer {
-    width: 100vw;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    width: 100%;
     background-color: #f8f9fa;
     color: #3c4043;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
