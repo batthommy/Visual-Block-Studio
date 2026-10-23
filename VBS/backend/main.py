@@ -137,13 +137,16 @@ def register():
         else:
             return render_template("login.html", error="Please fill in all fields.", show_sign_up=True, Name=Name, Username=Username, Email=Email, Birthdate=Birthdate)
 
-@app.route('/dashboard', methods=['GET'])
-@login_required
-def dashboard():
-    return render_template("dashboard.html")
+#UNUSED ENDPOINT
 
-@app.route('/logout', methods=['GET'])
+'''@login_required
+@app.route('/dashboard', methods=['GET'])
+def dashboard():
+    return render_template("dashboard.html")'''
+#UNUSED ENDPOINT
+
 @login_required
+@app.route('/logout', methods=['GET'])
 def logout():
     session.clear()
     return redirect(url_for('login'))
