@@ -1,0 +1,14 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+__pycache__/
+*.py[cod]
