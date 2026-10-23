@@ -7,14 +7,16 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-body{
+.login-page{
     background-color: #c9d6ff;
     background: linear-gradient(to right, #e2e2e2, #c9d6ff);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 24px;
+    width: 100%;
 }
 
 .container{
@@ -210,23 +212,9 @@ body{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-.logo {
+.login-page .logo {
     width: 150px;
     height: auto;
-    position: fixed;
-    top: 20px;
-    left: 20px;
+    position: static;
+    margin: 0 0 24px;
 }
