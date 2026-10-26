@@ -1,0 +1,76 @@
+
+{% extends "base.html" %}
+{% block title %}Login Page{% endblock %}
+{% block content %}
+    <!--  <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='img-processo/LOGO.png') }}" alt="logo" class="logo">
+    </a>  -->
+<div class="login-page">
+    <div class="container" id="container">
+
+        <!-- PLEASE STYLE THIS -->
+        {% if error %}
+        <div class="error-message">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+        <!-- PLEASE STYLE THIS -->
+
+
+        <div class="form-container sign-up">
+            <form action="{{ url_for('register') }}" method="POST">
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registeration</span>
+                <input type="text" placeholder="Name" name ="name_signup" value="{{ Name }}" required>
+                <input type="text" placeholder="Username" name ="username_signup" value="{{ Username }}" required>
+                <input type="email" placeholder="Email" name="email_signup" value="{{ Email }}" required>
+                <input type="password" placeholder="Password" name="password_signup" value="{{ Password }}" required>
+                <input type="date" id="birth_date" name="birth_date" value="{{ Birthdate }}" required>
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form action="{{ url_for('login') }}" method="POST">
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email and password</span>
+                <input type="email" placeholder="Email" name="Email" value="{{ Email_log }}" required>
+                <input type="password" placeholder="Password" name="Password" value="{{ Password_log }}" required>
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='login.js') }}"></script>
+    {% if show_sign_up %}
+    <script>
+        document.getElementById('container').classList.add('active');
+    </script>
+    {% endif %}
+</div>
+{% endblock %}

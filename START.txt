@@ -1,0 +1,125 @@
+```text
+VISUAL BLOCK STUDIO (VBS)
+=========================
+INSTALLATION AND STARTUP GUIDE
+
+REQUIREMENTS
+------------
+- Python 3 installed
+- pip available
+- Internet connection for the initial installation
+
+
+========================================
+1. STARTING ON LINUX (Ubuntu, Debian, etc.)
+========================================
+
+Open the terminal in the main VBS directory.
+
+FIRST INSTALLATION:
+
+1. Create the virtual environment:
+
+   python3 -m venv .venv
+
+2. Activate the virtual environment:
+
+   source .venv/bin/activate
+
+3. Install the dependencies:
+
+   pip install -r requirements.txt
+
+4. Start VBS:
+
+   python3 backend/main.py
+
+
+SUBSEQUENT STARTUPS:
+
+   source .venv/bin/activate
+   python3 backend/main.py
+
+
+========================================
+2. STARTING ON WINDOWS
+========================================
+
+Open Command Prompt (CMD) in the main VBS directory.
+
+FIRST INSTALLATION:
+
+1. Create the virtual environment:
+
+   py -m venv .venv
+
+2. Activate the virtual environment:
+
+   .venv\Scripts\activate.bat
+
+3. Install the dependencies:
+
+   python -m pip install -r requirements.txt
+
+4. Start VBS:
+
+   python backend\main.py
+
+
+SUBSEQUENT STARTUPS:
+
+   .venv\Scripts\activate.bat
+   python backend\main.py
+
+
+========================================
+3. USAGE
+========================================
+
+After startup, the terminal will display
+the local address of the Flask server.
+
+Open your browser and visit the address
+shown in the terminal.
+
+Usually:
+
+http://127.0.0.1:5000
+
+
+========================================
+4. SHUTDOWN
+========================================
+
+To stop VBS:
+
+Press CTRL + C in the terminal.
+
+To exit the virtual environment:
+
+deactivate
+
+
+========================================
+5. NOTES
+========================================
+
+- Run all commands from the main project
+  directory, where requirements.txt is located.
+
+- The .venv virtual environment only needs
+  to be created once.
+
+- Dependencies only need to be reinstalled
+  when necessary or when requirements.txt changes.
+
+- Do not delete the SQLite database if you
+  want to preserve users and projects.
+
+- Do not share files containing passwords
+  or secret keys.
+
+========================================
+VISUAL BLOCK STUDIO
+========================================
+```
